@@ -12,6 +12,7 @@ lazy val root = (project in file(".")).
     resolvers += Resolver.sonatypeRepo("releases"),
 
     libraryDependencies ++= Seq(scalaTest % Test,
-    							"com.danielasfregola" %% "twitter4s" % "5.1"
+    							"com.danielasfregola" %% "twitter4s" % "5.1",
+                  "com.typesafe" % "config" % "1.3.1"
     )
   )
