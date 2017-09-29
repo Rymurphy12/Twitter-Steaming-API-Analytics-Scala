@@ -20,14 +20,14 @@ object Analyzer{
                                   ConfigFactory.load().getString("twitter.access.secret"))
 
     val streamingTwitterClient = TwitterStreamingClient(consumerToken, accessToken)
-    streamingTwitterClient.sampleStatuses()(pullRawTwitterData)
+    streamingTwitterClient.sampleStatuses()(collectRawTwitterData)
   }
 
-  def pullRawTwitterData: PartialFunction[StreamingMessage, Unit] = {
-    case tweet: Tweet =>  twitterMetrics += pullTweetData(tweet)
+  def collectRawTwitterData: PartialFunction[StreamingMessage, Unit] = {
+    case tweet: Tweet =>  twitterMetrics += pullIndividualTweetData(tweet)
   }
 
-  def pullTweetData(tweet: Tweet): (Option[Seq[UrlDetails]], Option[Seq[HashTag]], Option[List[Emoji]]) = tweet.entities match {
+  def pullIndividualTweetData(tweet: Tweet): (Option[Seq[UrlDetails]], Option[Seq[HashTag]], Option[List[Emoji]]) = tweet.entities match {
       case None => (None, None, getEmojis(tweet.text))
       case Some(e) => (Some(e.urls), Some(e.hashtags), getEmojis(tweet.text))
   }
