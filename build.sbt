@@ -9,10 +9,14 @@ lazy val root = (project in file(".")).
     )),
     name := "SteamingApi",
 
-    resolvers += Resolver.sonatypeRepo("releases"),
+    resolvers ++= Seq(Resolver.sonatypeRepo("releases"),
+                      Resolver.typesafeIvyRepo("releases")
+
+    ),
 
     libraryDependencies ++= Seq(scalaTest % Test,
     							"com.danielasfregola" %% "twitter4s" % "5.1",
-                  "com.typesafe" % "config" % "1.3.1"
+                  "com.typesafe" % "config" % "1.3.1",
+                  "com.lightbend" %% "emoji" % "1.1.1"
     )
   )
