@@ -5,9 +5,9 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization := "com.github.rymurphy12",
       scalaVersion := "2.12.1",
-      version      := "0.1.0-SNAPSHOT"
+      version      := "1.0.0-SNAPSHOT"
     )),
-    name := "SteamingApi",
+    name := "twitter-analytics",
 
     resolvers ++= Seq(Resolver.sonatypeRepo("releases"),
                       Resolver.typesafeIvyRepo("releases")
@@ -15,8 +15,8 @@ lazy val root = (project in file(".")).
     ),
 
     libraryDependencies ++= Seq(scalaTest % Test,
-    							"com.danielasfregola" %% "twitter4s" % "5.1",
+    		  "com.danielasfregola" %% "twitter4s" % "5.1",
                   "com.typesafe" % "config" % "1.3.1",
-                  "com.lightbend" %% "emoji" % "1.1.1"
+                  "com.vdurmont" % "emoji-java" % "3.3.0"
     )
   )
