@@ -119,9 +119,9 @@ object Analyzer{
   }
 
   def getTotalImageUrls(twitterMetricsForPicUrls: List[IndividualTweetData]): Int = {
-    val listOfImageUrls = List("pic.twitter.com", "instagram.com", "flickr.com")
+    val listOfImageUrls = List("pic.twitter.com", "www.instagram.com")
     val totalURls = twitterMetricsForPicUrls.map(_.urlsInTweet.getOrElse(Seq.empty))
-    totalURls.map(seq => seq.map(urlDetail => urlDetail.display_url.split("/").head)
+    totalURls.map(seq => seq.map(urlDetail => urlDetail.expanded_url.split("/")(2))
              .filter(listOfImageUrls.contains(_))).filter(_.length > 0).length
   }
 
