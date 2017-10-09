@@ -7,7 +7,7 @@ lazy val root = (project in file(".")).
       scalaVersion := "2.12.1",
       version      := "1.0.0-SNAPSHOT"
     )),
-    name := "twitter-analytics",
+    name := "analytics",
 
     resolvers ++= Seq(Resolver.sonatypeRepo("releases"),
                       Resolver.typesafeIvyRepo("releases")
