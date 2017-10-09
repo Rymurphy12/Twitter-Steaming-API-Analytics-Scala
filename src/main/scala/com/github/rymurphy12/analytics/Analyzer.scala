@@ -49,6 +49,7 @@ object Analyzer{
     println(s"Total Number of Tweets Collected:               ${tweetMetricsResults.totalTweets}")
     println(f"Average Tweets Per Second:                      ${tweetMetricsResults.tweetsPerSecond}%.2f")
     println(f"Average Tweets Per Minute:                      ${tweetMetricsResults.tweetsPerMinute}%.2f")
+    println(f"Average Tweets Per Hour:                        ${tweetMetricsResults.tweetsPerHour}%.2f")
     println(f"Percent of Tweets That Contain Emojis:          ${(tweetMetricsResults.emojiPercentage * 100)}%.2f percent of tweets")
     println(f"Percentage of Tweets That Contain HashTags:     ${(tweetMetricsResults.hashTagPercentage * 100)}%.2f percent of tweets")
     println(f"Percentage of Tweets That Contain a URL:        ${(tweetMetricsResults.urlPercentage * 100)}%.2f precent of tweets")
